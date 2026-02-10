@@ -36,7 +36,7 @@ def run_ml_app():
     st.markdown(design, unsafe_allow_html=True)
     
     #structure form
-    left, right = st.columns((2. 2))
+    left, right = st.columns((2, 2))
     order_protocol = left.selectbox("Protocol", (1,2,3,4,5,6,7))
     store_primary_category = right.selectbox("")
     total_items = left.number_input("Total item", min_value = 0)
@@ -65,4 +65,5 @@ def predict(order_protocol, store_primary_category, total_items, subtotal, num_d
     return result
 
 if __name__ == "__main__":
+
     main()
