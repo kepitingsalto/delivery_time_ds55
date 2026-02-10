@@ -42,12 +42,12 @@ def run_ml_app():
        'sandwich', 'thai', 'cafe', 'Other', 'pizza', 'chinese', 'burger',
        'breakfast', 'mediterranean', 'japanese', 'other', 'fast',
        'seafood', 'vietnamese', 'dessert'))
-    total_items = left.number_input("Total item", min_value = 0, step=1)
-    subtotal = right.number_input("Subtotal", min_value = 0, step=1)
-    num_distinct_items = left.number_input("Jumlah jenis barang", min_value = 0, step=1)
-    total_onshift_partners = right.number_input("Jumlah kurir", min_value = 0, step=1)
-    total_busy_partners = left.number_input("Jumlah Kurir sedang mengantar", min_value = 0, step=1)
-    total_outstanding_orders = right.number_input("Jumlah Kurir standby", min_value = 0, step=1)
+    total_items = left.number_input("Total item", min_value = 0)
+    subtotal = right.number_input("Subtotal", min_value = 0)
+    num_distinct_items = left.number_input("Jumlah jenis barang", min_value = 0)
+    total_onshift_partners = right.number_input("Jumlah kurir", min_value = 0)
+    total_busy_partners = left.number_input("Jumlah Kurir sedang mengantar", min_value = 0)
+    total_outstanding_orders = right.number_input("Jumlah Kurir standby", min_value = 0)
     button = st.button("Predict")
     #If button is clilcked
     if button:
