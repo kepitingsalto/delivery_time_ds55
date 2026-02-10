@@ -38,7 +38,10 @@ def run_ml_app():
     #structure form
     left, right = st.columns((2, 2))
     order_protocol = left.selectbox("Protocol", (1,2,3,4,5,6,7))
-    store_primary_category = right.selectbox("")
+    store_primary_category = right.selectbox("Store Category", ('american', 'mexican', 'Uncategorized', 'indian', 'italian',
+       'sandwich', 'thai', 'cafe', 'Other', 'pizza', 'chinese', 'burger',
+       'breakfast', 'mediterranean', 'japanese', 'other', 'fast',
+       'seafood', 'vietnamese', 'dessert'))
     total_items = left.number_input("Total item", min_value = 0)
     subtotal = right.number_input("Subtotal", min_value = 0)
     num_distinct_items = left.number_input("Jumlah jenis barang", min_value = 0)
@@ -67,3 +70,4 @@ def predict(order_protocol, store_primary_category, total_items, subtotal, num_d
 if __name__ == "__main__":
 
     main()
+
