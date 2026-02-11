@@ -11,12 +11,52 @@ html_temp = """<div style="background-color:#000;padding:10px;border-radius:10px
                 <h4 style="color:#fff;text-align:center">Made for: Digital Skola Final Project</h4> 
                 """
 
-desc_temp = """ ### Loan Prediction App 
-                This app is used by Credit team for deciding Loan Application
-                
-                #### Data Source
-                Kaggle: Link <Masukkan Link>
-                """
+desc_temp = """
+## 🚚 Delivery Time Prediction App
+
+Aplikasi ini digunakan untuk memprediksi estimasi waktu pengantaran makanan berdasarkan berbagai faktor operasional seperti jumlah item, kategori restoran, jumlah kurir aktif, serta tingkat kesibukan kurir.
+
+Model yang digunakan dalam aplikasi ini adalah **XGBoost Regressor** yang telah melalui proses:
+
+- Data Cleaning & Feature Engineering  
+- Handling Categorical Variables (One Hot Encoding)  
+- Feature Selection  
+- Hyperparameter Tuning  
+- Model Evaluation  
+
+---
+
+### 📊 Fitur yang Digunakan dalam Model
+
+Beberapa variabel yang memengaruhi estimasi waktu pengantaran antara lain:
+
+- Order Protocol  
+- Store Primary Category  
+- Total Items & Subtotal  
+- Jumlah Jenis Barang  
+- Harga Produk (Min & Max)  
+- Jumlah Kurir Aktif & Sibuk  
+- Rasio Kesibukan Kurir (Busy Ratio)  
+- Rasio Beban Order (Load Ratio)  
+- Jam Pemesanan  
+- Hari Pemesanan  
+
+Model ini dirancang untuk membantu meningkatkan efisiensi operasional serta memberikan estimasi waktu pengantaran yang lebih akurat kepada pelanggan.
+
+---
+
+### 🛠️ Tech Stack
+
+- Python  
+- Pandas & NumPy  
+- Scikit-learn (Pipeline & Preprocessing)  
+- XGBoost  
+- Streamlit (Model Deployment)  
+
+---
+
+Silakan pilih menu **Machine Learning App** untuk melakukan prediksi.
+"""
 
 def main():
     stc.html(html_temp)
@@ -99,6 +139,7 @@ def predict(order_protocol, total_items, subtotal, num_distinct_items, min_item_
 if __name__ == "__main__":
 
     main()
+
 
 
 
