@@ -93,13 +93,14 @@ def predict(order_protocol, total_items, subtotal, num_distinct_items, min_item_
     })
 
     #Making prediction
-    prediction = XGB_Regression_Model.predict(input data)
+    prediction = XGB_Regression_Model.predict(input_data)
     
     return prediction[0]
 
 if __name__ == "__main__":
 
     main()
+
 
 
 
