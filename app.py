@@ -52,7 +52,7 @@ def run_ml_app():
                                                                                                     3:"Kamis", 4:"Jumat", 5:"Sabtu", 6:"Minggu"}[x])
     busy_ratio = total_busy_partners / total_onshift_partners
     load_ratio = total_outstanding_orders / total_onshift_partners
-    idle_driver = total_onshift_partners / total_busy_partners
+    idle_driver = total_onshift_partners - total_busy_partners
     avg_item_price = subtotal / total_items
     items_per_distinct = total_items / num_distinct_items
     button = st.button("Predict")
@@ -80,6 +80,7 @@ def predict(order_protocol, total_items, subtotal, num_distinct_items, min_item_
 if __name__ == "__main__":
 
     main()
+
 
 
 
