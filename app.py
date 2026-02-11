@@ -1,6 +1,7 @@
 import streamlit as st
 import streamlit.components.v1 as stc
 import pickle
+import pandas as pd
 
 with open('Model_XGB.pkl', 'rb') as file:
     XGB_Regression_Model = pickle.load(file)
@@ -102,6 +103,7 @@ def predict(order_protocol, total_items, subtotal, num_distinct_items, min_item_
 if __name__ == "__main__":
 
     main()
+
 
 
 
