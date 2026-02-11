@@ -58,8 +58,9 @@ def run_ml_app():
     button = st.button("Predict")
     #If button is clilcked
     if button:
-        result = predict(order_protocol, store_primary_category, total_items, subtotal, num_distinct_items, total_onshift_partners
-                         ,total_busy_partners, total_outstanding_orders)
+        result = predict(order_protocol, total_items, subtotal, num_distinct_items, min_item_price, max_item_price, total_onshift_partners,
+            total_busy_partners, total_outstanding_orders, hour, store_primary_category_grouped, busy_ratio, load_ratio,
+            idle_driver, avg_item_price, items_per_distinct, day_of_week_name)
         st.success(f'makanan akan tiba dalam {result} menit')
 
 def predict(order_protocol, total_items, subtotal, num_distinct_items, min_item_price, max_item_price, total_onshift_partners,
@@ -79,6 +80,7 @@ def predict(order_protocol, total_items, subtotal, num_distinct_items, min_item_
 if __name__ == "__main__":
 
     main()
+
 
 
 
