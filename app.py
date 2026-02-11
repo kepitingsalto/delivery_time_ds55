@@ -93,16 +93,14 @@ def predict(order_protocol, total_items, subtotal, num_distinct_items, min_item_
     })
 
     #Making prediction
-    prediction = XGB_Regression_Model.predict([[order_protocol, total_items, subtotal, num_distinct_items, min_item_price, max_item_price, total_onshift_partners,
-            total_busy_partners, total_outstanding_orders, hour, store_primary_category_grouped, busy_ratio, load_ratio,
-            idle_driver, avg_item_price, items_per_distinct, day_of_week_name]])
+    prediction = XGB_Regression_Model.predict(input data)
     
-    result = prediction
-    return result
+    return prediction[0]
 
 if __name__ == "__main__":
 
     main()
+
 
 
 
