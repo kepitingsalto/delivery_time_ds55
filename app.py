@@ -49,8 +49,7 @@ def run_ml_app():
     total_onshift_partners = right.number_input("Jumlah kurir", min_value = 1)
     total_busy_partners = left.number_input("Jumlah Kurir sedang mengantar", min_value = 1)
     total_outstanding_orders = right.number_input("Jumlah Kurir standby", min_value = 0)
-    day_of_week_name = left.selectbox("Hari", options=[0, 1, 2, 3, 4, 5, 6], format_func=lambda x: {0: "Senin",  1: "Selasa", 2: "Rabu", 
-                                                                                                    3:"Kamis", 4:"Jumat", 5:"Sabtu", 6:"Minggu"}[x])
+    day_of_week_name = left.selectbox("Hari", options=["Senin","Selasa","Rabu","Kamis","Jumat","Sabtu","Minggu"])
     min_item_price = right.number_input("Harga produk termurah", min_value = 0)
     max_item_price = left.number_input("Harga produk termahal", min_value = 0)
     hour = right.number_input("Jam pesan", min_value = 0, max_value = 23, step = 1)
@@ -100,6 +99,7 @@ def predict(order_protocol, total_items, subtotal, num_distinct_items, min_item_
 if __name__ == "__main__":
 
     main()
+
 
 
 
