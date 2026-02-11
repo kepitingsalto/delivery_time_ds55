@@ -2,7 +2,7 @@ import streamlit as st
 import streamlit.components.v1 as stc
 import pickle
 
-with open('xgb_regression_model.pkl', 'rb') as file:
+with open('Model_XGB.pkl', 'rb') as file:
     XGB_Regression_Model = pickle.load(file)
 
 html_temp = """<div style="background-color:#000;padding:10px;border-radius:10px">
@@ -39,15 +39,22 @@ def run_ml_app():
     left, right = st.columns((2, 2))
     order_protocol = left.selectbox("Protocol", (1,2,3,4,5,6,7))
     store_primary_category = right.selectbox("Store Category", ('american', 'mexican', 'Uncategorized', 'indian', 'italian',
-       'sandwich', 'thai', 'cafe', 'Other', 'pizza', 'chinese', 'burger',
-       'breakfast', 'mediterranean', 'japanese', 'other', 'fast',
-       'seafood', 'vietnamese', 'dessert'))
+                                                               'sandwich', 'thai', 'cafe', 'Other', 'pizza', 'chinese', 'burger',
+                                                               'breakfast', 'mediterranean', 'japanese', 'other', 'fast',
+                                                               'seafood', 'vietnamese', 'dessert'))
     total_items = left.number_input("Total item", min_value = 0)
     subtotal = right.number_input("Subtotal", min_value = 0)
     num_distinct_items = left.number_input("Jumlah jenis barang", min_value = 0)
     total_onshift_partners = right.number_input("Jumlah kurir", min_value = 0)
     total_busy_partners = left.number_input("Jumlah Kurir sedang mengantar", min_value = 0)
     total_outstanding_orders = right.number_input("Jumlah Kurir standby", min_value = 0)
+    day_of_week_name = left.selectbox("Hari", options=[0, 1, 2, 3, 4, 5, 6], format_func=lambda x: {0: "Senin",  1: "Selasa", 2: "Rabu", 
+                                                                                                    3:"Kamis", 4:"Jumat", 5:"Sabtu", 6:"Minggu"}[x])
+    busy_ratio = total_busy_partners / total_onshift_partners
+    load_ratio = total_outstanding_orders / total_onshift_partners
+    idle_driver = total_onshift_partners / total_busy_partners
+    avg_item_price = subtotal / total_items
+    items_per_distinct = total_items / num_distinct_items
     button = st.button("Predict")
     #If button is clilcked
     if button:
@@ -55,14 +62,16 @@ def run_ml_app():
                          ,total_busy_partners, total_outstanding_orders)
         st.success(f'makanan akan tiba dalam {result} menit')
 
-def predict(order_protocol, store_primary_category, total_items, subtotal, num_distinct_items, total_onshift_partners
-                         ,total_busy_partners, total_outstanding_orders):
-    
+def predict(order_protocol, total_items, subtotal, num_distinct_items, min_item_price, max_item_price, total_onshift_partners,
+            total_busy_partners, total_outstanding_orders, hour, store_primary_category_grouped, busy_ratio, load_ratio,
+            idle_driver, avg_item_price, items_per_distinct, day_of_week_name):
+      
     #Preprocessing User Input
 
     #Making prediction
-    prediction = XGB_Regression_Model.predict([[order_protocol, store_primary_category, total_items, subtotal, num_distinct_items, total_onshift_partners
-                         ,total_busy_partners, total_outstanding_orders]])
+    prediction = XGB_Regression_Model.predict([[order_protocol, total_items, subtotal, num_distinct_items, min_item_price, max_item_price, total_onshift_partners,
+            total_busy_partners, total_outstanding_orders, hour, store_primary_category_grouped, busy_ratio, load_ratio,
+            idle_driver, avg_item_price, items_per_distinct, day_of_week_name]])
     
     result = prediction
     return result
@@ -70,5 +79,6 @@ def predict(order_protocol, store_primary_category, total_items, subtotal, num_d
 if __name__ == "__main__":
 
     main()
+
 
 
