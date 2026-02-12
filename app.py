@@ -12,7 +12,7 @@ html_temp = """<div style="background-color:#000;padding:10px;border-radius:10px
                 """
 
 desc_temp = """
-## 🚚 Delivery Time Prediction App
+st.image("assets/tukang_data.png", use_container_width=True)
 
 Aplikasi ini digunakan untuk memprediksi estimasi waktu pengantaran makanan berdasarkan berbagai faktor operasional seperti jumlah item, kategori restoran, jumlah kurir aktif, serta tingkat kesibukan kurir.
 
@@ -139,6 +139,7 @@ def predict(order_protocol, total_items, subtotal, num_distinct_items, min_item_
 if __name__ == "__main__":
 
     main()
+
 
 
 
