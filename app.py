@@ -26,7 +26,7 @@ Model yang digunakan dalam aplikasi ini adalah **XGBoost Regressor** yang telah 
 
 ---
 
-### 📊 Fitur yang Digunakan dalam Model
+### Fitur yang Digunakan dalam Model
 
 Beberapa variabel yang memengaruhi estimasi waktu pengantaran antara lain:
 
@@ -42,16 +42,6 @@ Beberapa variabel yang memengaruhi estimasi waktu pengantaran antara lain:
 - Hari Pemesanan  
 
 Model ini dirancang untuk membantu meningkatkan efisiensi operasional serta memberikan estimasi waktu pengantaran yang lebih akurat kepada pelanggan.
-
----
-
-### 🛠️ Tech Stack
-
-- Python  
-- Pandas & NumPy  
-- Scikit-learn (Pipeline & Preprocessing)  
-- XGBoost  
-- Streamlit (Model Deployment)  
 
 ---
 
@@ -140,6 +130,7 @@ def predict(order_protocol, total_items, subtotal, num_distinct_items, min_item_
 if __name__ == "__main__":
 
     main()
+
 
 
 
