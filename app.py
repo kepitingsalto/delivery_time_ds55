@@ -83,7 +83,7 @@ def run_ml_app():
     day_of_week_name = left.selectbox("Hari", options=["Senin","Selasa","Rabu","Kamis","Jumat","Sabtu","Minggu"])
     min_item_price = right.number_input("Harga produk termurah", min_value = 0)
     max_item_price = left.number_input("Harga produk termahal", min_value = 0)
-    hour = right.number_input("Jam pesan", min_value = 0, max_value = 23, step = 1)
+    hour = right.selectbox("Jam pesan", options=[1, 2, 3, 4, 5, 6, 7, 8, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23])
     busy_ratio = total_busy_partners / total_onshift_partners
     load_ratio = total_outstanding_orders / total_onshift_partners
     idle_driver = total_onshift_partners - total_busy_partners
@@ -130,6 +130,7 @@ def predict(order_protocol, total_items, subtotal, num_distinct_items, min_item_
 if __name__ == "__main__":
 
     main()
+
 
 
 
