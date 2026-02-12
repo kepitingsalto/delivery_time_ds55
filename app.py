@@ -62,7 +62,7 @@ def main():
 
 def run_ml_app():
     design = """<div style="padding:15px;">
-                    <h1 style="color:#fff">Loan Eligibility Prediction</h1>
+                    <h1 style="color:#fff">Delivery Time Prediction</h1>
                 </div>
              """
     st.markdown(design, unsafe_allow_html=True)
@@ -130,6 +130,7 @@ def predict(order_protocol, total_items, subtotal, num_distinct_items, min_item_
 if __name__ == "__main__":
 
     main()
+
 
 
 
