@@ -3,95 +3,45 @@ import streamlit.components.v1 as stc
 import pickle
 import pandas as pd
 
-with open('Model_XGB.pkl', 'rb') as file:
-    XGB_Regression_Model = pickle.load(file)
+st.set_page_config(page_title="Delivery Time Prediction", layout="wide")
 
-html_temp = """
-<div style="
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+# Custom CSS
+st.markdown("""
+<style>
+.main {
+    background-color: #f5f7fa;
+}
+.hero {
+    background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
     padding: 40px;
     border-radius: 15px;
     text-align: center;
-    box-shadow: 0px 10px 30px rgba(0,0,0,0.2);
-">
-    <h1 style="
-        color: white;
-        font-size: 42px;
-        margin-bottom: 10px;
-        font-weight: 700;
-        letter-spacing: 1px;
-    ">
-        🚚 Delivery Time Prediction App
-    </h1>
+    color: white;
+}
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.08);
+}
+.section-title {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.stButton>button {
+    background-color: #2c5364;
+    color: white;
+    border-radius: 8px;
+    padding: 10px 25px;
+    font-weight: 600;
+}
+.stButton>button:hover {
+    background-color: #203a43;
+}
+</style>
+""", unsafe_allow_html=True)
 
-    <p style="
-        color: #f0f0f0;
-        font-size: 20px;
-        margin-bottom: 25px;
-    ">
-        Powered by XGBoost Machine Learning Model
-    </p>
-
-    <div style="
-        background-color: rgba(255,255,255,0.1);
-        padding: 20px;
-        border-radius: 10px;
-        margin-top: 20px;
-    ">
-        <p style="
-            color: white;
-            font-size: 16px;
-            line-height: 1.6;
-        ">
-            This application predicts delivery duration based on 
-            historical data and advanced machine learning modeling.
-            <br><br>
-            Enter your delivery parameters and get instant predictions 
-            with high accuracy.
-        </p>
-    </div>
-</div>
-"""
-st.markdown(html_temp, unsafe_allow_html=True)
-
-
-desc_temp = """
-
-
-Aplikasi ini digunakan untuk memprediksi estimasi waktu pengantaran makanan berdasarkan berbagai faktor operasional seperti jumlah item, kategori restoran, jumlah kurir aktif, serta tingkat kesibukan kurir.
-
-Model yang digunakan dalam aplikasi ini adalah **XGBoost Regressor** yang telah melalui proses:
-
-- Handling Missing Values
-- Exploratory Data Analysis
-- Feature Engineering  
-- Handling Categorical Variables (One Hot Encoding)  
-- Hyperparameter Tuning  
-- Model Evaluation  
-
----
-
-### Fitur yang Digunakan dalam Model
-
-Beberapa variabel yang memengaruhi estimasi waktu pengantaran antara lain:
-
-- Order Protocol  
-- Store Primary Category  
-- Total Items & Subtotal  
-- Jumlah Jenis Barang  
-- Harga Produk (Min & Max)  
-- Jumlah Kurir Aktif & Sibuk  
-- Rasio Kesibukan Kurir (Busy Ratio)  
-- Rasio Beban Order (Load Ratio)  
-- Jam Pemesanan  
-- Hari Pemesanan  
-
-Model ini dirancang untuk membantu meningkatkan efisiensi operasional serta memberikan estimasi waktu pengantaran yang lebih akurat kepada pelanggan.
-
----
-
-Silakan pilih menu **Machine Learning App** untuk melakukan prediksi.
-"""
 
 def main():
     stc.html(html_temp)
@@ -99,9 +49,49 @@ def main():
     choice = st.sidebar.selectbox("Menu", menu)
 
     if choice == "Home":
-        st.subheader("Home")
+
+    st.markdown("""
+    <div class="hero">
+        <h1>🚀 Delivery Time Prediction App</h1>
+        <p>Machine Learning Powered by XGBoost</p>
+        <p>Digital Skola Final Project</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.write("")
+    
+    col1, col2 = st.columns([1,1])
+
+    with col1:
+        st.markdown("""
+        <div class="card">
+        <div class="section-title">📌 Tentang Aplikasi</div>
+        Aplikasi ini memprediksi estimasi waktu pengantaran makanan berdasarkan berbagai faktor operasional seperti jumlah item, kategori restoran, jumlah kurir aktif, serta tingkat kesibukan kurir.
+        </div>
+        """, unsafe_allow_html=True)
+
+    with col2:
         st.image("assets/tukang_data.png", use_container_width=True)
-        st.markdown(desc_temp, unsafe_allow_html=True)
+
+    st.write("")
+
+    st.markdown("""
+    <div class="card">
+    <div class="section-title">🤖 Model Machine Learning</div>
+    Model menggunakan <b>XGBoost Regressor</b> dengan tahapan:
+    <ul>
+        <li>Handling Missing Values</li>
+        <li>Exploratory Data Analysis</li>
+        <li>One Hot Encoding</li>
+        <li>Hyperparameter Tuning</li>
+        <li>Model Evaluation</li>
+    </ul>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.write("")
+    st.info("👉 Silakan pilih menu 'Machine Learning App' di sidebar untuk melakukan prediksi.")
+
     elif choice == "Machine Learning App":
         run_ml_app()
 
@@ -175,9 +165,6 @@ def predict(order_protocol, total_items, subtotal, num_distinct_items, min_item_
 if __name__ == "__main__":
 
     main()
-
-
-
 
 
 
