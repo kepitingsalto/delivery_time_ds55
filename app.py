@@ -61,19 +61,15 @@ def main():
         """, unsafe_allow_html=True)
 
         st.write("")
-    
-        col1, col2 = st.columns([1,1])
 
-        with col1:
-            st.markdown("""
-            <div class="card">
-            <div class="section-title">📌 Tentang Aplikasi</div>
-            Aplikasi ini memprediksi estimasi waktu pengantaran makanan berdasarkan berbagai faktor operasional seperti jumlah item, kategori restoran, jumlah kurir aktif, serta tingkat kesibukan kurir.
-            </div>
-            """, unsafe_allow_html=True)
-
-        with col2:
-            st.image("assets/tukang_data.png", use_container_width=True)
+        st.image("assets/tukang_data.png", use_container_width=True)
+        
+        st.markdown("""
+        <div class="card">
+        <div class="section-title">📌 Tentang Aplikasi</div>
+        Aplikasi ini memprediksi estimasi waktu pengantaran makanan berdasarkan berbagai faktor operasional seperti jumlah item, kategori restoran, jumlah kurir aktif, serta tingkat kesibukan kurir.
+        </div>
+        """, unsafe_allow_html=True)
 
         st.write("")
 
@@ -169,4 +165,5 @@ def predict(order_protocol, total_items, subtotal, num_distinct_items, min_item_
 if __name__ == "__main__":
 
     main()
+
 
