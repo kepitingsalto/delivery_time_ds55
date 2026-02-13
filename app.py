@@ -6,10 +6,54 @@ import pandas as pd
 with open('Model_XGB.pkl', 'rb') as file:
     XGB_Regression_Model = pickle.load(file)
 
-html_temp = """<div style="background-color:#000;padding:10px;border-radius:10px">
-                <h1 style="color:#fff;text-align:center">Delivery Time Prediction App</h1> 
-                <h4 style="color:#fff;text-align:center">Made for: Digital Skola Final Project</h4> 
-                """
+html_temp = """
+<div style="
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.2);
+">
+    <h1 style="
+        color: white;
+        font-size: 42px;
+        margin-bottom: 10px;
+        font-weight: 700;
+        letter-spacing: 1px;
+    ">
+        🚚 Delivery Time Prediction App
+    </h1>
+
+    <p style="
+        color: #f0f0f0;
+        font-size: 20px;
+        margin-bottom: 25px;
+    ">
+        Powered by XGBoost Machine Learning Model
+    </p>
+
+    <div style="
+        background-color: rgba(255,255,255,0.1);
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+    ">
+        <p style="
+            color: white;
+            font-size: 16px;
+            line-height: 1.6;
+        ">
+            This application predicts delivery duration based on 
+            historical data and advanced machine learning modeling.
+            <br><br>
+            Enter your delivery parameters and get instant predictions 
+            with high accuracy.
+        </p>
+    </div>
+</div>
+"""
+st.markdown(html_temp, unsafe_allow_html=True)
+
 
 desc_temp = """
 
@@ -131,6 +175,7 @@ def predict(order_protocol, total_items, subtotal, num_distinct_items, min_item_
 if __name__ == "__main__":
 
     main()
+
 
 
 
