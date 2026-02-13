@@ -54,16 +54,7 @@ def main():
     choice = st.sidebar.selectbox("Menu", menu)
 
     if choice == "Home":
-        st.markdown("""
-        <div class="hero">
-            <h1>Delivery Time Prediction App</h1>
-            <p>Machine Learning Powered by XGBoost</p>
-            <p>Digital Skola Final Project</p>
-        </div>
-        """, unsafe_allow_html=True)
-
-        st.write("")
-
+        
         st.image("assets/tukang_data.png", use_container_width=True)
         
         st.markdown("""
@@ -167,6 +158,7 @@ def predict(order_protocol, total_items, subtotal, num_distinct_items, min_item_
 if __name__ == "__main__":
 
     main()
+
 
 
 
