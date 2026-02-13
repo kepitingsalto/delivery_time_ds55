@@ -43,6 +43,8 @@ st.markdown("""
 .stButton>button:hover {
     background-color: #203a43;
 }
+p {
+    color: black !important;
 </style>
 """, unsafe_allow_html=True)
 
@@ -55,7 +57,7 @@ def main():
     if choice == "Home":
         st.markdown("""
         <div class="hero">
-            <h1>🚀 Delivery Time Prediction App</h1>
+            <h1>Delivery Time Prediction App</h1>
             <p>Machine Learning Powered by XGBoost</p>
             <p>Digital Skola Final Project</p>
         </div>
@@ -67,8 +69,8 @@ def main():
         
         st.markdown("""
         <div class="card">
-        <div class="section-title">📌 Tentang Aplikasi</div>
-        Aplikasi ini memprediksi estimasi waktu pengantaran makanan berdasarkan berbagai faktor operasional seperti jumlah item, kategori restoran, jumlah kurir aktif, serta tingkat kesibukan kurir.
+        <div class="section-title">Tentang Aplikasi</div>
+              Aplikasi ini memprediksi estimasi waktu pengantaran makanan berdasarkan berbagai faktor operasional seperti jumlah item, kategori restoran, jumlah kurir aktif, serta tingkat kesibukan kurir.
         </div>
         """, unsafe_allow_html=True)
 
@@ -166,6 +168,7 @@ def predict(order_protocol, total_items, subtotal, num_distinct_items, min_item_
 if __name__ == "__main__":
 
     main()
+
 
 
 
