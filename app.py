@@ -20,7 +20,6 @@ Model yang digunakan dalam aplikasi ini adalah **XGBoost Regressor** yang telah 
 
 - Data Cleaning & Feature Engineering  
 - Handling Categorical Variables (One Hot Encoding)  
-- Feature Selection  
 - Hyperparameter Tuning  
 - Model Evaluation  
 
@@ -130,6 +129,7 @@ def predict(order_protocol, total_items, subtotal, num_distinct_items, min_item_
 if __name__ == "__main__":
 
     main()
+
 
 
 
