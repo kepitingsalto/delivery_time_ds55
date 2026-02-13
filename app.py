@@ -84,7 +84,7 @@ def main():
         
         st.markdown("""
         <div class="card">
-        st.info("👉 Silakan pilih menu 'Machine Learning App' di sidebar untuk melakukan prediksi.")
+        Silakan pilih menu **'Machine Learning App'** di sidebar untuk melakukan prediksi.
         </div>
         """, unsafe_allow_html=True)
     
@@ -163,6 +163,7 @@ def predict(order_protocol, total_items, subtotal, num_distinct_items, min_item_
 if __name__ == "__main__":
 
     main()
+
 
 
 
