@@ -1,7 +1,10 @@
 import streamlit as st
-import streamlit.components.v1 as stc
 import pickle
 import pandas as pd
+
+with open('Model_XGB.pkl', 'rb') as file:
+    XGB_Regression_Model = pickle.load(file)
+
 
 st.set_page_config(page_title="Delivery Time Prediction", layout="wide")
 
@@ -45,10 +48,12 @@ st.markdown("""
 
 def main():
 
-    if choice == "Home":       
+    menu = ["Home", "Machine Learning App"]
+    choice = st.sidebar.selectbox("Menu", menu)
 
-       st.markdown("""
-       <div class="hero">
+    if choice == "Home":
+        st.markdown("""
+        <div class="hero">
             <h1>🚀 Delivery Time Prediction App</h1>
             <p>Machine Learning Powered by XGBoost</p>
             <p>Digital Skola Final Project</p>
@@ -121,8 +126,8 @@ def run_ml_app():
     busy_ratio = total_busy_partners / total_onshift_partners
     load_ratio = total_outstanding_orders / total_onshift_partners
     idle_driver = total_onshift_partners - total_busy_partners
-    avg_item_price = subtotal / total_items
-    items_per_distinct = total_items / num_distinct_items
+    avg_item_price = subtotal / total_items if total_items != 0 else 0
+    items_per_distinct = total_items / num_distinct_items if num_distinct_items != 0 else 0
     button = st.button("Predict")
     #If button is clilcked
     if button:
@@ -164,3 +169,4 @@ def predict(order_protocol, total_items, subtotal, num_distinct_items, min_item_
 if __name__ == "__main__":
 
     main()
+
