@@ -31,10 +31,11 @@ st.markdown("""
     font-size: 22px;
     font-weight: 600;
     margin-bottom: 10px;
+    color: black;
 }
 .stButton>button {
     background-color: #2c5364;
-    color: red;
+    color: black;
     border-radius: 8px;
     padding: 10px 25px;
     font-weight: 600;
@@ -165,6 +166,7 @@ def predict(order_protocol, total_items, subtotal, num_distinct_items, min_item_
 if __name__ == "__main__":
 
     main()
+
 
 
 
