@@ -18,7 +18,9 @@ Aplikasi ini digunakan untuk memprediksi estimasi waktu pengantaran makanan berd
 
 Model yang digunakan dalam aplikasi ini adalah **XGBoost Regressor** yang telah melalui proses:
 
-- Data Cleaning & Feature Engineering  
+- Handling Missing Values
+- Exploratory Data Analysis
+- Feature Engineering  
 - Handling Categorical Variables (One Hot Encoding)  
 - Hyperparameter Tuning  
 - Model Evaluation  
@@ -129,6 +131,7 @@ def predict(order_protocol, total_items, subtotal, num_distinct_items, min_item_
 if __name__ == "__main__":
 
     main()
+
 
 
 
