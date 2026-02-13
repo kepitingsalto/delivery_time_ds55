@@ -26,6 +26,7 @@ st.markdown("""
     padding: 25px;
     border-radius: 12px;
     box-shadow: 0px 4px 15px rgba(0,0,0,0.08);
+    color: black;
 }
 .section-title {
     font-size: 22px;
@@ -43,8 +44,6 @@ st.markdown("""
 .stButton>button:hover {
     background-color: #203a43;
 }
-.hero p {
-    color: black !important;
 </style>
 """, unsafe_allow_html=True)
 
@@ -168,6 +167,7 @@ def predict(order_protocol, total_items, subtotal, num_distinct_items, min_item_
 if __name__ == "__main__":
 
     main()
+
 
 
 
