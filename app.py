@@ -50,47 +50,51 @@ def main():
 
     if choice == "Home":
 
-    st.markdown("""
-    <div class="hero">
-        <h1>🚀 Delivery Time Prediction App</h1>
-        <p>Machine Learning Powered by XGBoost</p>
-        <p>Digital Skola Final Project</p>
-    </div>
-    """, unsafe_allow_html=True)
+        if choice == "Home":
 
-    st.write("")
-    
-    col1, col2 = st.columns([1,1])
-
-    with col1:
-        st.markdown("""
-        <div class="card">
-        <div class="section-title">📌 Tentang Aplikasi</div>
-        Aplikasi ini memprediksi estimasi waktu pengantaran makanan berdasarkan berbagai faktor operasional seperti jumlah item, kategori restoran, jumlah kurir aktif, serta tingkat kesibukan kurir.
+            st.markdown("""
+            <div class="hero">
+            <h1>🚀 Delivery Time Prediction App</h1>
+            <p>Machine Learning Powered by XGBoost</p>
+            <p>Digital Skola Final Project</p>
         </div>
         """, unsafe_allow_html=True)
 
-    with col2:
-        st.image("assets/tukang_data.png", use_container_width=True)
+        st.write("")
+    
+        col1, col2 = st.columns([1,1])
 
-    st.write("")
+        with col1:
+            st.markdown("""
+            <div class="card">
+            <div class="section-title">📌 Tentang Aplikasi</div>
+            Aplikasi ini memprediksi estimasi waktu pengantaran makanan berdasarkan berbagai faktor operasional seperti jumlah item, kategori restoran, jumlah kurir aktif, serta tingkat kesibukan kurir.
+            </div>
+            """, unsafe_allow_html=True)
 
-    st.markdown("""
-    <div class="card">
-    <div class="section-title">🤖 Model Machine Learning</div>
-    Model menggunakan <b>XGBoost Regressor</b> dengan tahapan:
-    <ul>
-        <li>Handling Missing Values</li>
-        <li>Exploratory Data Analysis</li>
-        <li>One Hot Encoding</li>
-        <li>Hyperparameter Tuning</li>
-        <li>Model Evaluation</li>
-    </ul>
-    </div>
-    """, unsafe_allow_html=True)
+        with col2:
+            st.image("assets/tukang_data.png", use_container_width=True)
 
-    st.write("")
-    st.info("👉 Silakan pilih menu 'Machine Learning App' di sidebar untuk melakukan prediksi.")
+        st.write("")
+
+        st.markdown("""
+        <div class="card">
+        <div class="section-title">🤖 Model Machine Learning</div>
+        Model menggunakan <b>XGBoost Regressor</b> dengan tahapan:
+        <ul>
+            <li>Handling Missing Values</li>
+            <li>Exploratory Data Analysis</li>
+            <li>One Hot Encoding</li>
+            <li>Hyperparameter Tuning</li>
+            <li>Model Evaluation</li>
+        </ul>
+        </div>
+        """, unsafe_allow_html=True)
+
+        st.write("")
+        st.info("👉 Silakan pilih menu 'Machine Learning App' di sidebar untuk melakukan prediksi.")
+    
+
 
     elif choice == "Machine Learning App":
         run_ml_app()
@@ -165,6 +169,7 @@ def predict(order_protocol, total_items, subtotal, num_distinct_items, min_item_
 if __name__ == "__main__":
 
     main()
+
 
 
 
