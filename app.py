@@ -19,7 +19,7 @@ st.markdown("""
     padding: 40px;
     border-radius: 15px;
     text-align: center;
-    color: white;
+    color: black;
 }
 .card {
     background: white;
@@ -165,5 +165,6 @@ def predict(order_protocol, total_items, subtotal, num_distinct_items, min_item_
 if __name__ == "__main__":
 
     main()
+
 
 
