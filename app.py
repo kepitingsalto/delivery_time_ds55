@@ -43,7 +43,7 @@ st.markdown("""
 .stButton>button:hover {
     background-color: #203a43;
 }
-p {
+.hero p {
     color: black !important;
 </style>
 """, unsafe_allow_html=True)
@@ -168,6 +168,7 @@ def predict(order_protocol, total_items, subtotal, num_distinct_items, min_item_
 if __name__ == "__main__":
 
     main()
+
 
 
 
