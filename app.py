@@ -102,7 +102,6 @@ def run_ml_app():
     """, unsafe_allow_html=True)
 
     st.write("")
-    st.markdown(design, unsafe_allow_html=True)
     
     #structure form
     left, right = st.columns((2, 2))
@@ -167,6 +166,7 @@ def predict(order_protocol, total_items, subtotal, num_distinct_items, min_item_
 if __name__ == "__main__":
 
     main()
+
 
 
 
