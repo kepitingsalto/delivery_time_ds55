@@ -94,10 +94,14 @@ def main():
         run_ml_app()
 
 def run_ml_app():
-    design = """<div style="padding:15px;">
-                    <h1 style="color:#fff">Delivery Time Prediction</h1>
-                </div>
-             """
+    st.markdown("""
+    <div class="hero">
+        <h2>Delivery Time Prediction</h2>
+        <p>Masukkan parameter operasional untuk mendapatkan estimasi waktu</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.write("")
     st.markdown(design, unsafe_allow_html=True)
     
     #structure form
@@ -163,6 +167,7 @@ def predict(order_protocol, total_items, subtotal, num_distinct_items, min_item_
 if __name__ == "__main__":
 
     main()
+
 
 
 
