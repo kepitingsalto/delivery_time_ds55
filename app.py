@@ -44,16 +44,11 @@ st.markdown("""
 
 
 def main():
-    stc.html(html_temp)
-    menu = ["Home", "Machine Learning App"]
-    choice = st.sidebar.selectbox("Menu", menu)
 
-    if choice == "Home":
+    if choice == "Home":       
 
-        if choice == "Home":
-
-            st.markdown("""
-            <div class="hero">
+       st.markdown("""
+       <div class="hero">
             <h1>🚀 Delivery Time Prediction App</h1>
             <p>Machine Learning Powered by XGBoost</p>
             <p>Digital Skola Final Project</p>
@@ -169,24 +164,3 @@ def predict(order_protocol, total_items, subtotal, num_distinct_items, min_item_
 if __name__ == "__main__":
 
     main()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
